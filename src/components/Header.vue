@@ -7,33 +7,29 @@
         <SearchField />
       </div>
       <div class="right-section">
-        <ProfileButton />
+        <!-- <ProfileButton /> -->
+        <HomeButton/>
       </div>
     </header>
   </template>
   
-  <script>
+  <script setup>
   import LogoButton from './LogoButton.vue';
   import SearchField from './SearchField.vue';
   import ProfileButton from './ProfileButton.vue';
+import HomeButton from './HomeButton.vue';
+
   
-  export default {
-    name: 'Header',
-    components: {
-      LogoButton,
-      SearchField,
-      ProfileButton
-    }
-  }
   </script>
   
   <style scoped>
   .header {
     width: 100%;
-    background-color: #333;
+    background-color: #292828;
     padding: 10px;
     display: flex;
     align-items: center;
+    margin-right: 10px;
   }
   
   .left-section,
@@ -52,6 +48,7 @@
   
   .right-section {
     text-align: right;
+    margin-right: 15px;
   }
   
   button {
@@ -64,6 +61,7 @@
     padding: 12px;
     width: 900px;
     border-radius: 10px;
+    background-color: #0e0909;
   }
   </style>
   

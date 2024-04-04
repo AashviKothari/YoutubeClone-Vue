@@ -4,10 +4,8 @@
     <button class="logo-button">DSTube</button>
   </template>
   
-  <script>
-  export default {
-    name: 'LogoButton'
-  }
+  <script setup>
+ 
   </script>
   
   <style scoped>

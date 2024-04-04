@@ -1,36 +1,61 @@
 <template>
     <div class="result-pop">
-      <Header />
-      <div class="main-body">
-        <img src="path/to/image.jpg" alt="Result Image" class="result-image">
+      <div class="image-container">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/61qt98DhBTL._RI_.jpg" alt="Result Image" class="thumbnail">
       </div>
+      <div class="details">
+        <h2>Tom & Jerry | Tom & Jerry in Full Screen | Classic Cartoon Compilation | WB Kids</h2>
+        <p>100,000 views</p>
+        <h4>WB Kids</h4>
+      </div>
+      <input type="text" class="comment-input" placeholder="Add comments">
     </div>
   </template>
   
   <script>
-  import Header from './Header.vue';
-  
   export default {
-    name: 'ResultPop',
-    components: {
-      Header
-    }
+    name: 'ResultPop'
   }
   </script>
   
   <style scoped>
-  /* Add styling for the result pop component if needed */
-  .main-body {
-    text-align: center; /* Center the image horizontally */
+  .result-pop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
   }
   
-  .result-image {
-    width: 80%; /* Set width to 80% of the container */
-    height: 70%; /* Set height to 70% of the container */
-    max-width: 100%; /* Ensure image does not exceed 100% of its parent width */
-    max-height: 100%; /* Ensure image does not exceed 100% of its parent height */
-    margin: auto; /* Center the image vertically */
-    display: block; /* Ensure proper margin auto behavior */
+  .image-container {
+    display: flex;
+    justify-content: center; /* Horizontally center the image */
+    margin-bottom: 20px;
+  }
+  
+  .thumbnail {
+    width: 1000px;
+  }
+  
+  .details {
+    text-align: left;
+    margin-right: 130px;
+  }
+  
+  .comment-input {
+    width: 50%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-right: 50px;
+    background-color: transparent;
+  }
+  
+  h2 {
+    color: #feffde;
+    margin-bottom: 10px;
+  }
+  
+  p, h4 {
+    color: #feffde;
   }
   </style>
   
