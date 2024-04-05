@@ -16,7 +16,7 @@ import Profile from './components/Profile.vue';
 
 const routes = [
   { path: '/', component: MainBody },
-  { path: '/result', component: ResultPop },
+  { path: '/result/:id', component: ResultPop },
   { path: '/profile', component: Profile },
 ];
 
@@ -24,6 +24,8 @@ const router = createRouter({
   history: createWebHistory(),
   routes
 });
+
+
 </script>
 
 <style>

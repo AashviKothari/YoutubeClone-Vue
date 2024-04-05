@@ -1,21 +1,37 @@
 <template>
     <div class="result-pop">
       <div class="image-container">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/61qt98DhBTL._RI_.jpg" alt="Result Image" class="thumbnail">
+        <img :src="datas.imgSrc" alt="Result Image" class="thumbnail">
       </div>
       <div class="details">
-        <h2>Tom & Jerry | Tom & Jerry in Full Screen | Classic Cartoon Compilation | WB Kids</h2>
-        <p>100,000 views</p>
-        <h4>WB Kids</h4>
+        <h2>{{datas.title}}</h2>
+        <p>{{datas.views}} views</p>
+        <h4></h4>
       </div>
       <input type="text" class="comment-input" placeholder="Add comments">
     </div>
   </template>
   
-  <script>
-  export default {
-    name: 'ResultPop'
-  }
+  <script setup>
+  import {useRoute} from 'vue-router'
+  import {ref,reactive,onMounted} from 'vue'
+
+  import data from '../assets/config/data.json';
+
+  const datas=reactive({
+    
+    imgSrc:'',
+    title:'',
+    views:'',
+    desc:'' 
+  })
+  const route=useRoute();
+ onMounted(() => {
+  const id = route.params.id;
+  console.log("Id dsds",id)
+  const fetchData = data.find(item => item.id === id);
+  Object.assign(datas, fetchData);
+}); 
   </script>
   
   <style scoped>

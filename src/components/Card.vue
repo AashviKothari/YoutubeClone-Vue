@@ -1,11 +1,11 @@
 <template>
-  <router-link :to="{ path: '/result' }" class="card">
-    <img :src="imgSrc" alt="Video Thumbnail" class="thumbnail">
+  <router-link :to="'/result/' + item.id" class="card"  v-for="item in data">
+    <img :src="item.imgSrc" alt="Video Thumbnail" class="thumbnail">
     <div class="content">
-      <h2>{{ title }}</h2>
-      <p>{{ views }}M views</p>
-      <p>{{ creator.firstname }} {{ creator.lastname }}</p>
-      <p>{{ desc }}</p>
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.views }}M views</p>
+      <p>{{ item.creator.firstname }} {{ item.creator.lastname }}</p>
+      <p>{{ item.desc }}</p>
     </div>
   </router-link>
 </template>
@@ -13,13 +13,19 @@
 <script setup>
 import { defineProps } from 'vue';
 
-const props = defineProps({
-  imgSrc: String,
-  title: String,
-  views: Number,
-  desc: String,
-  creator: Object
-});
+// const props = defineProps({
+//   key:String,
+//   imgSrc: String,
+//   title: String,
+//   views: Number,
+//   desc: String,
+//   creator: Object
+// });
+
+const props=defineProps({
+  data:Array,
+  default:[]
+})
 </script>
 
 <style scoped>

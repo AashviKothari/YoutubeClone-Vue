@@ -11,7 +11,7 @@ const router = createRouter({
   routes: [
     { path: '/', component: MainBody },
     { path: '/profile', component: Profile },
-    { path: '/result', component: ResultPop },
+    { path: '/result/:id', component: ResultPop },
   ],
 });
 
