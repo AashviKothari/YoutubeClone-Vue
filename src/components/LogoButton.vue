@@ -1,5 +1,3 @@
-<!-- LogoButton.vue -->
-
 <template>
      <router-link to="/" class="logo-button">DSTube</router-link>
   </template>
