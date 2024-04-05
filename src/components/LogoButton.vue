@@ -1,7 +1,7 @@
 <!-- LogoButton.vue -->
 
 <template>
-    <button class="logo-button">DSTube</button>
+     <router-link to="/" class="logo-button">DSTube</router-link>
   </template>
   
   <script setup>
@@ -18,6 +18,7 @@
     border-radius: 5px; 
     cursor: pointer; 
     width: 100px;
+    text-decoration: none;
   }
   </style>
   
