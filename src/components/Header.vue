@@ -7,8 +7,8 @@
         <SearchField />
       </div>
       <div class="right-section">
-        <!-- <ProfileButton /> -->
-        <HomeButton/>
+        <ProfileButton />
+        <!-- <HomeButton/> -->
       </div>
     </header>
   </template>

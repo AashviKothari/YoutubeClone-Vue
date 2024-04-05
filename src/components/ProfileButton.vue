@@ -1,5 +1,5 @@
 <template>
-  <button class="profile-button">Profile</button>
+  <router-link to="/profile" class="profile-button">Profile</router-link>
 </template>
 
 <script setup>
@@ -15,5 +15,6 @@ const name = 'ProfileButton';
   border: 2px solid blue; 
   border-radius: 5px; 
   cursor: pointer;
+  text-decoration: none; /* Remove underline */
 }
 </style>

@@ -1,65 +1,52 @@
 <template>
-  <div class="main-body">
-    <div class="card">
-      <img src="https://images.indianexpress.com/2020/09/shinchan.jpg" alt="Video Thumbnail" class="thumbnail">
-      <div class="content">
-        <h2>Shinchan New Episode in Hindi | Shinchan in Hindi | Shinchan Cartoon | Shinchan Movie</h2>
-        <p>600M views</p>
-        <br/>
-        <p>WB Kids</p>
-        <p>Did you know that there are only 25 classic Tom & Jerry episodes that were displayed in a widescreen CinemaScope from the ...</p>
-      </div>
+  <router-link :to="{ path: '/result' }" class="card">
+    <img :src="imgSrc" alt="Video Thumbnail" class="thumbnail">
+    <div class="content">
+      <h2>{{ title }}</h2>
+      <p>{{ views }}M views</p>
+      <p>{{ creator.firstname }} {{ creator.lastname }}</p>
+      <p>{{ desc }}</p>
     </div>
-
-    <div class="card">
-      <img src="https://th.bing.com/th/id/OIP.GLjwZp1sr0tYIIpXB8m7vQHaEK?rs=1&pid=ImgDetMain" alt="Video Thumbnail" class="thumbnail">
-      <div class="content">
-        <h2>Shinchan Horror episode 25-3-2024 | New episode | Latest episode shinchan nohara | SUBSCRIBE</h2>
-        <p>600M views</p>
-        <br/>
-        <p>WB Kids</p>
-        <p>Did you know that there are only 25 classic Tom & Jerry episodes that were displayed in a widescreen CinemaScope from the ...</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://wallpapercave.com/wp/wp3062302.jpg" alt="Video Thumbnail" class="thumbnail">
-      <div class="content">
-        <h2>SHINCHAN AND FRANKLIN TRIED THE IMPOSSIBLE DUAL COLOURFUL TUBE PARKOUR CHALLENGE</h2>
-        <p>600M views</p>
-        <br/>
-        <p>WB Kids</p>
-        <p>Did you know that there are only 25 classic Tom & Jerry episodes that were displayed in a widescreen CinemaScope from the ...</p>
-      </div>
-    </div>
-  </div>
+  </router-link>
 </template>
 
 <script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  imgSrc: String,
+  title: String,
+  views: Number,
+  desc: String,
+  creator: Object
+});
 </script>
 
 <style scoped>
-.main-body {
-  margin: 30px;
-}
-
 .card {
   display: flex;
   align-items: top;
   width: calc(100% - 60px);
-  background-color:transparent;
+  background-color: transparent;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit text color */
+  transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
+}
+
+.card:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Greyish shadow effect on hover */
+  transform: scale(1.05); /* Pop effect on hover */
 }
 
 .thumbnail {
-  width: 24%; 
+  width: 24%;
   margin-right: 20px;
 }
 
 .content {
   flex: 1;
-  margin-top: 0px;
 }
 
 h2 {
