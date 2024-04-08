@@ -11,24 +11,29 @@
           <h4>Like: {{ likeCount }}</h4>
           <button @click="increaseLike">Like</button>
           <button @click="decreaseLike">Dislike</button>
+          <button :class="{ 'subscribe-red': isSubscribed, 'subscribe-grey': !isSubscribed }" @click="toggleSubscription">
+            {{ isSubscribed ? 'Unsubscribe' : 'Subscribe' }}
+          </button>
           <span v-if="likeCount > 15" class="tag trending">Trending</span>
           <span v-else-if="likeCount > 10" class="tag popular">Popular</span>
         </div>
         <div class="comment-container">
-          <input type="text" class="comment-input" placeholder="Add comments">
+          <input type="text" class="comment-input" placeholder="Add comments" v-model="newComment">
           <button class="post-comment" @click="postComment">Post Comment</button>
         </div>
+        
       </div>
-      <div class="subscribe-container">
-        <button :class="{ 'subscribe-red': isSubscribed, 'subscribe-grey': !isSubscribed }" @click="toggleSubscription">
-          Subscribe
-        </button>
-      </div>
+      <ul class="comment-list">
+          <li v-for="(comment, index) in comments" :key="index" class="comment">{{ comment }}</li>
+        </ul>
     </div>
+    
   </div>
   <div v-else>
     Loading...
   </div>
+
+  
 </template>
 
 <script setup>
@@ -40,6 +45,8 @@ const datas = ref(null);
 const likeCount = ref(0);
 const dislikeCount = ref(0);
 const isSubscribed = ref(false); // Reactive variable to track subscription status
+const newComment = ref('');
+const comments = ref([]);
 
 const increaseLike = () => {
   likeCount.value++;
@@ -56,7 +63,10 @@ const toggleSubscription = () => {
 }
 
 const postComment = () => {
-  // Your logic to handle posting a comment
+  if (newComment.value.trim() !== '') {
+    comments.value.push(newComment.value.trim());
+    newComment.value = ''; // Clear the input field after posting the comment
+  }
 }
 
 onMounted(() => {
@@ -82,7 +92,7 @@ onMounted(() => {
   border: 1px solid #555;
   border-radius: 10px;
   padding: 20px;
-  height: 85%;
+  height: fit-content;
   margin-top: 10px;
   background-color: #333;
   position: relative; /* Required for absolute positioning */
@@ -105,11 +115,17 @@ onMounted(() => {
 .thumbnail {
   width: 100%;
 }
+li{
+  margin-right:70%;
+}
 
 .details {
-  text-align: left;
-  /* margin-left: -170px; Adjust margin as needed */
-  margin-right: 60px; /* Adjust margin as needed */
+  /* text-align: left; */
+
+  /* border: 2px solid red; */
+  width:100%;
+
+  /* margin-right: 60px;  */
 }
 
 .comment-container {
@@ -169,9 +185,9 @@ button:hover {
 }
 
 .subscribe-container {
-  position: absolute;
-  bottom: 30px; /* Adjust the distance from the bottom */
-  left: 20px; /* Align to the left end */
+  /* position: absolute;
+  bottom: 30px; 
+  left: 20px;  */
 }
 
 .subscribe-red {
@@ -187,5 +203,18 @@ button:hover {
 .post-comment {
   background-color: red;
   color: white;
+}
+
+/* Comment list styles */
+.comment-list {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  /* border: 2px solid red; */
+  justify-content: left;
+}
+
+.comment-list .comment {
+  color: white; /* Set text color to white */
+  text-align: left; /* Align comments to the left */
 }
 </style>
