@@ -184,11 +184,11 @@ button:hover {
   background-color: #ffa500;
 }
 
-.subscribe-container {
+/* .subscribe-container { */
   /* position: absolute;
   bottom: 30px; 
   left: 20px;  */
-}
+/* } */
 
 .subscribe-red {
   background-color: red;
