@@ -1,9 +1,7 @@
-<!-- MainBody.vue -->
 <template>
   <div class="main-body">
 
     <Card :data="jsonData"/>
-    <!-- <Card v-for="item in jsonData" :key="item.id" :imgSrc="item.imgSrc" :title="item.title" :views="item.views" :desc="item.desc" :creator="item.creator" /> -->
   </div>
 </template>
 

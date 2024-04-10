@@ -13,15 +13,6 @@
 <script setup>
 import { defineProps } from 'vue';
 
-// const props = defineProps({
-//   key:String,
-//   imgSrc: String,
-//   title: String,
-//   views: Number,
-//   desc: String,
-//   creator: Object
-// });
-
 const props=defineProps({
   data:Array,
   default:[]
@@ -36,15 +27,14 @@ const props=defineProps({
   background-color: transparent;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Inherit text color */
-  transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
+  text-decoration: none; 
+  color: inherit; 
+  transition: box-shadow 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Greyish shadow effect on hover */
-  transform: scale(1.05); /* Pop effect on hover */
-}
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05); }
 
 .thumbnail {
   width: 24%;

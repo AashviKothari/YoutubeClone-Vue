@@ -44,7 +44,7 @@ export default {
   methods: {
     updateProfile() {
       console.log('Profile updated');
-      // You can add any additional logic here, such as sending data to a server
+     
     }
   }
 };

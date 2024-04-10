@@ -44,7 +44,7 @@ import data from '../assets/config/data.json';
 const datas = ref(null);
 const likeCount = ref(0);
 const dislikeCount = ref(0);
-const isSubscribed = ref(false); // Reactive variable to track subscription status
+const isSubscribed = ref(false); 
 const newComment = ref('');
 const comments = ref([]);
 
@@ -59,13 +59,13 @@ const decreaseLike = () => {
 }
 
 const toggleSubscription = () => {
-  isSubscribed.value = !isSubscribed.value; // Toggle subscription status
+  isSubscribed.value = !isSubscribed.value; 
 }
 
 const postComment = () => {
   if (newComment.value.trim() !== '') {
     comments.value.push(newComment.value.trim());
-    newComment.value = ''; // Clear the input field after posting the comment
+    newComment.value = ''; 
   }
 }
 
