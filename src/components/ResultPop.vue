@@ -14,31 +14,27 @@
           <button :class="{ 'subscribe-red': isSubscribed, 'subscribe-grey': !isSubscribed }" @click="toggleSubscription">
             {{ isSubscribed ? 'Unsubscribe' : 'Subscribe' }}
           </button>
-          <span v-if="likeCount > 15" class="tag trending">Trending</span>
-          <span v-else-if="likeCount > 10" class="tag popular">Popular</span>
+          <span v-if="isTrending" class="tag trending">Trending</span>
+          <span v-else-if="isPopular" class="tag popular">Popular</span>
         </div>
         <div class="comment-container">
           <input type="text" class="comment-input" placeholder="Add comments" v-model="newComment">
           <button class="post-comment" @click="postComment">Post Comment</button>
         </div>
-        
       </div>
       <ul class="comment-list">
-          <li v-for="(comment, index) in comments" :key="index" class="comment">{{ comment }}</li>
-        </ul>
+        <li v-for="(comment, index) in comments" :key="index" class="comment">{{ comment }}</li>
+      </ul>
     </div>
-    
   </div>
   <div v-else>
     Loading...
   </div>
-
-  
 </template>
 
 <script setup>
 import { useRoute } from 'vue-router'
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, computed } from 'vue'
 import data from '../assets/config/data.json';
 
 const datas = ref(null);
@@ -78,6 +74,9 @@ onMounted(() => {
     console.error('Data not found');
   }
 });
+
+const isTrending = computed(() => likeCount.value > 15);
+const isPopular = computed(() => likeCount.value > 10 && likeCount.value <= 15);
 </script>
 
 <style scoped>
@@ -95,7 +94,7 @@ onMounted(() => {
   height: fit-content;
   margin-top: 10px;
   background-color: #333;
-  position: relative; /* Required for absolute positioning */
+  position: relative; 
 }
 
 .result-pop {
@@ -115,17 +114,9 @@ onMounted(() => {
 .thumbnail {
   width: 100%;
 }
-li{
-  margin-right:70%;
-}
 
 .details {
-  /* text-align: left; */
-
-  /* border: 2px solid red; */
   width:100%;
-
-  /* margin-right: 60px;  */
 }
 
 .comment-container {
@@ -135,7 +126,7 @@ li{
 }
 
 .comment-input {
-  flex: 4; /* Take up remaining space */
+  flex: 4; 
   padding: 10px;
   width: 70%;
   background-color: #555;
@@ -143,7 +134,7 @@ li{
   border: none;
   border-radius: 5px;
   box-sizing: border-box;
-  margin-right: 10px; /* Add some margin between input and button */
+  margin-right: 10px;
 }
 
 h2 {
@@ -184,12 +175,6 @@ button:hover {
   background-color: #ffa500;
 }
 
-/* .subscribe-container { */
-  /* position: absolute;
-  bottom: 30px; 
-  left: 20px;  */
-/* } */
-
 .subscribe-red {
   background-color: red;
   color: white;
@@ -205,16 +190,13 @@ button:hover {
   color: white;
 }
 
-/* Comment list styles */
 .comment-list {
-  list-style: none; /* Remove bullet points */
-  padding: 0; /* Remove default padding */
-  /* border: 2px solid red; */
-  justify-content: left;
+  list-style: none;
+  padding: 0;
 }
 
 .comment-list .comment {
-  color: white; /* Set text color to white */
-  text-align: left; /* Align comments to the left */
+  color: white;
+  text-align: left;
 }
 </style>

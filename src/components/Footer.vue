@@ -11,5 +11,10 @@
     .foot-div{
         width: 100%;
         background-color: black;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: sticky;
     }
 </style>
