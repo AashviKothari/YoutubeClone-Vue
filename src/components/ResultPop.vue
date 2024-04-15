@@ -36,6 +36,7 @@
 import { useRoute } from 'vue-router'
 import { ref, reactive, onMounted, computed } from 'vue'
 import data from '../assets/config/data.json';
+import {useRecentlyVisitedStore} from '../recentlyVisited'
 
 const datas = ref(null);
 const likeCount = ref(0);
@@ -73,6 +74,7 @@ onMounted(() => {
   } else {
     console.error('Data not found');
   }
+  useRecentlyVisitedStore().addVisitedCard(fetchData)
 });
 
 const isTrending = computed(() => likeCount.value > 15);

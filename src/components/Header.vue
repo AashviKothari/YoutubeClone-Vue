@@ -8,6 +8,7 @@
       </div>
       <div class="right-section">
         <ProfileButton />
+        <RecentButton/>
         <!-- <HomeButton/> -->
       </div>
     </header>
@@ -18,6 +19,7 @@
   import SearchField from './SearchField.vue';
   import ProfileButton from './ProfileButton.vue';
 import HomeButton from './HomeButton.vue';
+import RecentButton from './RecentButton.vue';
 
   
   </script>

@@ -7,11 +7,12 @@ export const useRecentlyVisitedStore = defineStore('recentlyVisited', {
   actions: {
     addVisitedCard(card) {
       this.visitedCards.unshift(card);
-      this.visitedCards.splice(3);
+      if (this.visitedCards.length > 3) {
+        this.visitedCards.splice(3);
+      }
     },
     getTop3VisitedCards() {
       return this.visitedCards.slice(0, 3);
     },
   },
 });
-

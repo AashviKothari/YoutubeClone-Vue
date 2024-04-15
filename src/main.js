@@ -12,7 +12,15 @@ const router = createRouter({
     { path: '/', component: MainBody },
     { path: '/profile', component: Profile },
     { path: '/result/:id', component: ResultPop },
+    {path:'/recent',component:RecentTabs},
   ],
 });
+import { createPinia } from 'pinia';
+import RecentTabs from './components/RecentTabs.vue';
 
-createApp(App).use(router).mount('#app');
+const pinia=createPinia();
+const app=createApp(App);
+
+app.use(pinia);
+
+app.use(router).mount('#app');

@@ -4,7 +4,7 @@
     <div class="content">
       <h2>{{ item.title }}</h2>
       <p>{{ item.views }}M views</p>
-      <p>{{ item.creator.firstname }} {{ item.creator.lastname }}</p>
+      <!-- <p>{{ item.creator.firstname }} {{ item.creator.lastname }}</p> -->
       <p>{{ item.desc }}</p>
     </div>
   </router-link>
