@@ -8,6 +8,7 @@
 </template>
 
 <script setup>
+
 import { useRecentlyVisitedStore } from '../recentlyVisited.js'
 import Card from './Card.vue';
 
