@@ -20,19 +20,13 @@
     <button @click="updateProfile">Update</button>
     <div class="submitted-info">
       <h2>Details:</h2>
-<<<<<<< HEAD
       <p>Full Name: {{ fullName }}</p>
-=======
-      <p>First Name: {{ formData.firstName }}</p>
-      <p>Last Name: {{ formData.lastName }}</p>
->>>>>>> c8f8555b15825cf303460f4d8431d5ad18bc23bd
       <p>Mobile Number: {{ formData.mobile }}</p>
       <p>Email: {{ formData.email }}</p>
     </div>
   </div>
 </template>
 
-<<<<<<< HEAD
 <script setup>
 import { ref, computed } from 'vue';
 
@@ -49,27 +43,6 @@ const fullName = computed(() => {
 
 const updateProfile = () => {
   console.log('Profile updated');
-=======
-<script>
-export default {
-  name: 'Profile',
-  data() {
-    return {
-      formData: {
-        firstName: '',
-        lastName: '',
-        mobile: '',
-        email: ''
-      }
-    };
-  },
-  methods: {
-    updateProfile() {
-      console.log('Profile updated');
-     
-    }
-  }
->>>>>>> c8f8555b15825cf303460f4d8431d5ad18bc23bd
 };
 </script>
 
