@@ -4,7 +4,11 @@
     <div class="content">
       <h2>{{ item.title }}</h2>
       <p>{{ item.views }}M views</p>
+<<<<<<< HEAD
       <!-- <p>{{ item.creator.firstname }} {{ item.creator.lastname }}</p> -->
+=======
+      <p>{{ item.creator.firstname }} {{ item.creator.lastname }}</p>
+>>>>>>> c8f8555b15825cf303460f4d8431d5ad18bc23bd
       <p>{{ item.desc }}</p>
     </div>
   </router-link>

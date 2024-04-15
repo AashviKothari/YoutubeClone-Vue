@@ -8,7 +8,10 @@
       </div>
       <div class="right-section">
         <ProfileButton />
+<<<<<<< HEAD
         <RecentButton/>
+=======
+>>>>>>> c8f8555b15825cf303460f4d8431d5ad18bc23bd
         <!-- <HomeButton/> -->
       </div>
     </header>
@@ -19,7 +22,10 @@
   import SearchField from './SearchField.vue';
   import ProfileButton from './ProfileButton.vue';
 import HomeButton from './HomeButton.vue';
+<<<<<<< HEAD
 import RecentButton from './RecentButton.vue';
+=======
+>>>>>>> c8f8555b15825cf303460f4d8431d5ad18bc23bd
 
   
   </script>

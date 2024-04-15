@@ -12,6 +12,7 @@ const router = createRouter({
     { path: '/', component: MainBody },
     { path: '/profile', component: Profile },
     { path: '/result/:id', component: ResultPop },
+<<<<<<< HEAD
     {path:'/recent',component:RecentTabs},
   ],
 });
@@ -24,3 +25,9 @@ const app=createApp(App);
 app.use(pinia);
 
 app.use(router).mount('#app');
+=======
+  ],
+});
+
+createApp(App).use(router).mount('#app');
+>>>>>>> c8f8555b15825cf303460f4d8431d5ad18bc23bd
