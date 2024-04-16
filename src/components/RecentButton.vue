@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/recent" class="recent-button">Recent-3</router-link>
+    <router-link to="/recent" class="recent-button">Recently Visited</router-link>
 </template>
 
 <script setup>
